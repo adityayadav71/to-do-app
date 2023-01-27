@@ -1,0 +1,20 @@
+@media all and (max-width: 425px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    width: 90vw;
+  }
+  .filter-container .filter {
+    display: none !important;
+  }
+  .mobile-filter-container {
+    visibility: visible;
+    margin-top: 3rem;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--very-dark-desaturated-blue-dark);
+  }
+}

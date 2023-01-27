@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --primary-blue: hsl(220, 98%, 61%);
+  --very-light-gray-light: hsl(0, 0%, 98%);
+  --very-light-grayish-blue-light: hsl(236, 33%, 92%);
+  --light-grayish-blue-light: hsl(233, 11%, 84%);
+  --dark-grayish-blue-light: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue-light: hsl(235, 19%, 35%);
+
+  --very-dark-blue-dark: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue-dark: hsl(235, 24%, 19%);
+  --light-grayish-blue-dark: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover-dark: hsl(236, 33%, 92%);
+  --dark-grayish-blue-dark: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue-1-dark: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue-2-dark: hsl(237, 14%, 26%);
+  --linear-gradient: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--very-dark-blue-dark);
+  height: 100vh;
+}
+
+/* GENERAL */
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  box-shadow: 5px 5px 7px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40vw;
+  justify-content: flex-start;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.logout-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 0.7rem;
+  color: #fff;
+  background-color: var(--primary-blue);
+}
+
+/* TITLE AND THEME SWITCH */
+
+.heading {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  color: #fff;
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.theme-btn {
+  border: none;
+  background-color: transparent;
+}
+
+/* TO DO INPUT */
+
+.to-do-input,
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 5rem;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--very-dark-desaturated-blue-dark);
+}
+
+.to-do-input {
+  border-bottom: 1px solid var(--very-dark-grayish-blue-2-dark);
+}
+
+.no-items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  justify-content: center;
+  font-size: 1.8rem;
+  background-color: var(--very-dark-desaturated-blue-dark);
+  border-bottom: 1px solid var(--very-dark-grayish-blue-2-dark);
+  color: var(--very-dark-grayish-blue-1-dark);
+}
+
+.user-input {
+  margin-bottom: 3rem;
+}
+
+.to-do-input:hover {
+  cursor: pointer;
+}
+
+.to-do-input:hover .checkbox-label {
+  cursor: pointer;
+  color: var(--light-grayish-blue-hover-dark);
+}
+
+.checkbox-label {
+  position: relative;
+  margin-left: 3rem;
+  font-size: 1.8rem;
+  width: 90%;
+  color: var(--dark-grayish-blue-dark);
+}
+
+.checkbox {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: none;
+}
+
+.checkbox-label::before,
+.to-do-input-box::before {
+  content: "";
+  background-image: url(/images/icon-check.svg), var(--linear-gradient);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: absolute;
+  left: -3.6rem;
+  top: -0.4rem;
+  transform: scale(0) rotateZ(180deg);
+  transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+}
+
+.checkbox-label::after,
+.to-do-input-box::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: -3.6rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--very-dark-grayish-blue-2-dark);
+}
+
+.input-checkbox-label::after {
+  left: -3.5rem;
+  top: -1.2rem;
+}
+.input-checkbox-label::before {
+  left: -3.5rem;
+  top: -1.2rem;
+}
+
+input[type="checkbox"]:checked + label::before {
+  transform: scale(1) rotateZ(0deg);
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--dark-grayish-blue-dark);
+}
+
+input[type="checkbox"]:checked + label:hover {
+  color: var(--dark-grayish-blue-dark);
+}
+
+.to-do-input-box {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  caret-color: var(--primary-blue);
+  color: var(--light-grayish-blue-hover-dark);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.8rem;
+}
+
+.to-do-input-box::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.8rem;
+  color: var(--dark-grayish-blue-dark);
+}
+
+.to-do-input-box:focus {
+  outline: none;
+}
+
+/* TO DO LIST */
+
+.to-do {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-bottom: 1px solid var(--very-dark-grayish-blue-2-dark);
+  box-shadow: 0px 4px 8px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--very-dark-desaturated-blue-dark);
+}
+
+.to-do label {
+  font-size: 1.6rem;
+  color: var(--light-grayish-blue-hover-dark);
+}
+
+.to-do .to-do-input {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.filter-container {
+  font-size: 1.4rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  color: var(--dark-grayish-blue-dark);
+  justify-content: space-between;
+  justify-self: flex-end;
+  order: 1;
+}
+
+.mobile-filter-container {
+  visibility: hidden;
+}
+
+.filter > *,
+.clear-to-do {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--very-dark-grayish-blue-1-dark);
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.filter > *:hover {
+  color: var(--primary-blue);
+}
+
+.clear-to-do {
+  padding: 0;
+}
+
+.clear-to-do:hover {
+  color: var(--light-grayish-blue-dark);
+}
+
+.filter {
+  gap: 1rem;
+}
+
+.filter-active {
+  color: var(--primary-blue);
+}
+
+.delete {
+  display: none;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+
+.to-do-input:hover .delete {
+  display: block;
+}
+
+/* FOOTER INSTRUCTIONS */
+
+.footer {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  font-size: 1.4rem;
+  color: var(--very-dark-grayish-blue-1-dark);
+  transform: translateX(-50%);
+}
+
+/* LIGHT THEME */
+
+.light-theme {
+  background-color: var(--very-light-gray-light);
+}
+
+.light-theme .to-do-input,
+.light-theme .no-items,
+.light-theme .to-do,
+.light-theme .filter-container,
+.light-theme .mobile-filter-container {
+  background-color: var(--very-light-gray-light);
+  border-bottom-color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .no-items {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .clear-to-do {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .filter > * {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .filter > *:hover,
+.light-theme .clear-to-do:hover {
+  color: var(--very-dark-grayish-blue-light);
+}
+
+.light-theme .filter-active {
+  color: var(--primary-blue);
+}
+
+.light-theme .to-do {
+  box-shadow: 0px 4px 20px 10px rgba(26, 26, 26, 0.1);
+}
+
+.light-theme .filter-container {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .to-do-input .checkbox-label {
+  color: var(--very-dark-grayish-blue-light);
+}
+.light-theme .to-do-input:hover .checkbox-label {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .footer {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme input[type="checkbox"]:checked + label {
+  color: var(--light-grayish-blue-light);
+}
+
+.light-theme input[type="checkbox"]:checked + label:hover {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .to-do-input-box {
+  color: var(--very-dark-grayish-blue-light);
+}
+
+.light-theme .to-do-input-box::placeholder {
+  color: var(--dark-grayish-blue-light);
+}
+
+.light-theme .checkbox-label::after,
+.light-theme .to-do-input-box::after {
+  border: 1px solid var(--light-grayish-blue-light);
+}

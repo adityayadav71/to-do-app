@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      font-family: "Josefin Sans", sans-serif;
+      height: 100vh;
+      background-color: hsl(235, 21%, 11%);
+    }
+    .flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50rem;
+      padding: 5rem;
+      border-radius: 1rem;
+      background-color: hsl(235, 24%, 19%);
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .form {
+      width: 100%;
+      gap: 2rem;
+    }
+    .form input {
+      width: 100%;
+      border: none;
+      padding: 1rem;
+      border-radius: 0.7rem;
+    }
+
+    input::placeholder {
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .form-title {
+      font-size: 4.8rem;
+      color: #fff;
+    }
+
+    .login-btn {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: #fff;
+      background-color: hsl(220, 98%, 61%);
+      transition: all 0.3s ease;
+    }
+    .login-btn:hover {
+      cursor: pointer;
+      background-color: hsl(220, 98%, 71%);
+    }
+    @media all and (max-width: 425px) {
+      html {
+        font-size: 50%;
+      }
+      .container {
+        width: 45rem;
+      }
+    }
+  </style>
+  <body>
+    <div class="container flex">
+      <h1 class="form-title">LOGIN</h1>
+      <form class="form flex" action="/login" method="POST">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Your username"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Your password"
+          required
+        />
+        <input class="login-btn" type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>
